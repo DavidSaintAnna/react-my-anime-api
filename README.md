@@ -27,7 +27,7 @@ $ npm run dev
 
 <div align="center">
 
-Deploy do front-end efetuado no [Netlify](https://www.netlify.com/) para visualizar: [Clique Aqui](davidanimeapi.netlify.app)
+Deploy do front-end efetuado no [Netlify](https://www.netlify.com/) para visualizar: [Clique Aqui](https://davidanimeapi.netlify.app/)
 
 |                             :computer:Desktop                             |        
 | :-----------------------------------------------------------------------: | 
