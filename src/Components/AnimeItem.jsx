@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -117,6 +117,22 @@ function AnimeItem() {
           ></iframe>
         )}
       </div>
+      <h3 className="title">Characters</h3>
+      <div className="characters">
+        {characters?.map((character, index) => {
+          const { role } = character;
+          const { images, name, mal_id } = character.character;
+          return (
+            <Link to={`/character/${mal_id}`} key={index}>
+              <div className="character">
+                <img src={images?.jpg.image_url} alt="" />
+                <h4>{name}</h4>
+                <p>{role}</p>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </AnimeItemStyled>
   );
 }
@@ -161,12 +177,45 @@ const AnimeItemStyled = styled.div`
       font-weight: 600;
     }
   }
+
+  .trailer-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    iframe {
+      outline: none;
+      border: 5px solid #e5e7eb;
+      padding: 1.5rem;
+      border-radius: 10px;
+      background-color: #ffffff;
+    }
+  }
   .details {
     background-color: #fff;
     background-color: #ffffff;
     border-radius: 20px;
     padding: 2rem;
     border: 5px solid #e5e7eb;
+    .detail {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      img {
+        border-radius: 7px;
+      }
+    }
+    .anime-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      p {
+        display: flex;
+        gap: 1rem;
+      }
+      p span:first-child {
+        font-weight: 600;
+        color: #6c7983;
+      }
+    }
   }
 `;
 
