@@ -217,6 +217,35 @@ const AnimeItemStyled = styled.div`
       }
     }
   }
+
+  .characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2rem;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 5px solid #e5e7eb;
+    .character {
+      padding: 0.4em 0.6em;
+      border-radius: 7px;
+      background-color: #ededed;
+      transition: all 0.4s ease-in-out;
+      img {
+        width: 100%;
+      }
+      h4 {
+        padding: 0.5rem 0;
+        color: #454e56;
+      }
+      p {
+        color: #27ae60;
+      }
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
 `;
 
 export default AnimeItem;
