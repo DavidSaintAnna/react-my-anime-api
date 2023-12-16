@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 
+import styled from "styled-components";
+
 function AnimeItem() {
   const { id } = useParams();
 
@@ -32,11 +34,20 @@ function AnimeItem() {
     setAnime(data.data);
   };
 
+  const getCharacters = async (anime) => {
+    const response = await fetch(
+      `https://api.jikan.moe/v4/anime/${anime}/characters`
+    );
+    const data = await response.json();
+    setCharacters(data.data);
+  };
+
   useEffect(() => {
     getAnime(id);
+    getCharacters(id);
   }, []);
   return (
-    <div>
+    <AnimeItemStyled>
       <h1>{title}</h1>
       <div className="details">
         <div className="detail">
@@ -106,8 +117,57 @@ function AnimeItem() {
           ></iframe>
         )}
       </div>
-    </div>
+    </AnimeItemStyled>
   );
 }
+
+const AnimeItemStyled = styled.div`
+  padding: 3rem 18rem;
+  background-color: #ededed;
+  h1 {
+    display: inline-block;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #a855f7, #27a360);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      transform: skew(-3deg);
+    }
+  }
+  .title {
+    display: inline-block;
+    margin: 3rem 0;
+    font-size: 2rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #a855f7 23%, #27a360);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .description {
+    margin-top: 2rem;
+    color: #6c7983;
+    line-height: 1.7rem;
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #27ae60;
+      font-weight: 600;
+    }
+  }
+  .details {
+    background-color: #fff;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 5px solid #e5e7eb;
+  }
+`;
 
 export default AnimeItem;
