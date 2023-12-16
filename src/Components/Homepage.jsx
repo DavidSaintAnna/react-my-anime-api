@@ -46,7 +46,7 @@ function Homepage() {
               Popular
             </button>
           </div>
-          <form action="" className="search-form">
+          <form action="" className="search-form" onSubmit={handleSubmit}>
             <div className="input-control">
               <input
                 type="text"
@@ -54,9 +54,7 @@ function Homepage() {
                 value={search}
                 onChange={handleChange}
               />
-              <button type="submit" onClick={handleSubmit}>
-                Search
-              </button>
+              <button type="submit">Search</button>
             </div>
           </form>
           <div className="filter-btn popular-filter">
