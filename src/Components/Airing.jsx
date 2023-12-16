@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../context/global";
 import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 import styled from "styled-components";
 
 function Airing({ rendered }) {
@@ -30,6 +31,7 @@ function Airing({ rendered }) {
       <div>
         <div className="airing-anime">{conditionalRender()}</div>
       </div>
+      <Sidebar />
     </PopularStyled>
   );
 }

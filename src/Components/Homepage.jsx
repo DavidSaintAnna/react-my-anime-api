@@ -96,6 +96,9 @@ const HomepageStyled = styled.div`
     width: 60%;
     margin: 0 auto;
     transition: all 0.4s ease-in-out;
+    @media screen and (max-width: 1530px) {
+      width: 95%;
+    }
     .logo {
       display: flex;
       align-items: center;

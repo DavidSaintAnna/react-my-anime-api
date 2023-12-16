@@ -14,6 +14,17 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: white;
+        font-size: 1.2rem;
+           &::-webkit-scrollbar{
+            width: 7px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #27AE60;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-track{
+            background-color: #EDEDED;
+        }
     }
 `;
 
